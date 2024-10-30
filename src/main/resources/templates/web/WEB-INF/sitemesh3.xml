@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+  <!-- Sử dụng decorator cho các tệp Thymeleaf -->
+  <mapping path="/*" decorator="layout.html"/> <!-- Đổi 'web.jsp' thành 'layout.html' -->
+  <mapping path="/v1/api/*" exclude="true"/>
+</sitemesh>

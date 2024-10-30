@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Management</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+</head>
+<body>
+
+<!-- BEGIN TOP BAR -->
+<div class="pre-header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN TOP BAR LEFT PART -->
+            <div class="col-md-6 col-sm-6 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
+                    <li class="shop-currencies">
+                        <a href="javascript:void(0);">€</a>
+                        <a href="javascript:void(0);">£</a>
+                        <a href="javascript:void(0);" class="current">$</a>
+                    </li>
+                    <li class="langs-block">
+                        <a href="javascript:void(0);" class="current">English </a>
+                        <div class="langs-block-others-wrapper">
+                            <div class="langs-block-others">
+                                <a href="javascript:void(0);">French</a>
+                                <a href="javascript:void(0);">Germany</a>
+                                <a href="javascript:void(0);">Turkish</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- END TOP BAR LEFT PART -->
+
+            <!-- BEGIN TOP BAR MENU -->
+            <div class="col-md-6 col-sm-6 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><a href="/account">My Account</a></li>
+                    <li><a href="/wishlist">My Wishlist</a></li>
+                    <li><a href="/checkout">Checkout</a></li>
+                    <li th:if="${session.account == null}">
+                        <a th:href="@{/login}">Đăng nhập</a> | 
+                        <a th:href="@{/register}">Đăng Ký</a>
+                    </li>
+                    <li th:if="${session.account != null}">
+                        <span th:text="${session.account.fullname}">User</span> |
+                        <a th:href="@{/profile}">Xem thông tin cá nhân</a> |
+                        <a th:href="@{/logout}">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END TOP BAR MENU -->
+        </div>
+    </div>
+</div>
+<!-- END TOP BAR -->
+
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <!-- Logo -->
+        <a class="site-logo" th:href="@{/}">
+            <img th:src="@{/src/main/resources/static/avatar.jpg}" alt="Logo of Nguyen Quang Hoang Phat">
+        </a>
+
+        <!-- Navigation -->
+        <div class="header-navigation">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category</a>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/category/list}">Category List</a></li>
+                        <li><a th:href="@{/category/add}">Add New Category</a></li>
+                    </ul>
+                </li>
+                <li><a th:href="@{/home}">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END HEADER -->
